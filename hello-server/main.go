@@ -8,7 +8,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, world!")
+		fmt.Fprintf(w, "Hello, world! Let's learn Kubernetes!")
 	})
 
 	log.Println("Starting server on port 8080")
