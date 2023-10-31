@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-server
+  labels:
+    app: hello-server
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-server
+  template:
+    metadata:
+      labels:
+        app: hello-server
+    spec:
+      containers:
+      - name: hello-server
+        image: blux2/hello-server:1.4
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              name: hello-server-configmap
+              key: PORT
+        - name: HOST
+          valueFrom:
+            configMapKeyRef:
+              name: hello-server-configmap
+              key: HOST
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-server-configmap
+data:
+  PORT: "8081"
