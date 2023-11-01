@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: httpserver
+  name: httpserver-liveness
+spec:
+  containers:
+  - name: httpserver
+    image: blux2/delayfailserver:1.1
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 5
