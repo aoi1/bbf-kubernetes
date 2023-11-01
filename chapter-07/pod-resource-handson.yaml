@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: hello-server
+  name: hello-server
+spec:
+  containers:
+  - name: hello-server
+    image: blux2/hello-server:1.6
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "10m"
+      limits:
+        memory: "64Mi"
+        cpu: "10m"
