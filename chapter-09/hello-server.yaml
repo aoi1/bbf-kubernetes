@@ -1,0 +1,62 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-server
+  labels:
+    app: hello-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-server
+  template:
+    metadata:
+      labels:
+        app: hello-server
+    spec:
+      containers:
+      - name: hello-server
+        image: blux2/hello-server:1.8
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "10m"
+          limits:
+            memory: "256Mi"
+            cpu: "10m"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: hello-server-pdb
+spec:
+  maxUnavailable: 10%
+  selector:
+    matchLabels:
+      app: hello-server
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-server-external
+spec:
+  type: NodePort
+  selector:
+    app: hello-server
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30599
