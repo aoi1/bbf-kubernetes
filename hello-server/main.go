@@ -21,8 +21,8 @@ func main() {
 		fmt.Fprintf(w, "Hello, world! Let's learn Kubernetes!")
 	})
 
-	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path != "/health" {
+	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/healthz" {
 			http.NotFound(w, r)
 			return
 		}
