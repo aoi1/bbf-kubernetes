@@ -1,0 +1,8 @@
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: hello-server
+        scrape_interval: 10s
+        static_configs:
+        - targets:
+          - hello-server.develop.svc.cluster.local:8080
