@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: hello-server-pdb
+spec:
+  maxUnavailable: 10%
+  selector:
+    matchLabels:
+      app: hello-server
