@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   labels:
     app: httpserver
-  name: httpserver
+  name: httpserver-readiness
 spec:
   containers:
   - name: httpserver
