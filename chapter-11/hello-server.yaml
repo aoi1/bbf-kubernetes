@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: hello-server
-        image: blux2/hello-server:2.1
+        image: blux2/hello-server:2.3
         resources:
           requests:
             memory: "256Mi"
