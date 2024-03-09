@@ -1,3 +1,2 @@
-FROM nginx
-RUN apt-get update && apt-get upgrade -y
+FROM nginx:1.25
 COPY index.html /usr/share/nginx/html
