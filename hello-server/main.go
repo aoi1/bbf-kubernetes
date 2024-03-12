@@ -18,7 +18,7 @@ func main() {
 			http.NotFound(w, r)
 			return
 		}
-		fmt.Fprintf(w, "Hello, world! Let's learn Kubernetes!")
+		fmt.Fprintf(w, "Hello, world! Let's build, break and fix!")
 	})
 
 	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
