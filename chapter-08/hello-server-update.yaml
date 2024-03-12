@@ -29,7 +29,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
       - name: hello-server
-        image: blux2/hello-server:2.0
+        image: blux2/hello-server:2.0.1
         env:
         - name: PORT
           valueFrom:
