@@ -15,4 +15,4 @@ spec:
             - ssd
   containers:
   - name: node-affinity-pod
-    image: nginx
+    image: nginx:1.25.3

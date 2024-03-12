@@ -19,4 +19,4 @@ spec:
           topologyKey: kubernetes.io/hostname
   containers:
   - name: nginx
-    image: nginx
+    image: nginx:1.25.3
