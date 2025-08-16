@@ -40,3 +40,4 @@ metadata:
   name: hello-server-configmap
 data:
   PORT: "8081"
+  HOST: "localhost"
