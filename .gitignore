@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Env / local config
+.env
+.env.*
+*.local
+
+# Build artifacts / binaries
+bin/
+out/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Archives
+*.zip
+*.tar
+*.tgz
+*.gz
+
+# Go
+*.coverprofile
+coverage.out
+
+# Docker
+**/.docker-cache/
